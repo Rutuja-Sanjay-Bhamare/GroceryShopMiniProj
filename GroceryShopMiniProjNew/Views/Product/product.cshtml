@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<GroceryShopMiniProjNew.Models.GroceryProduct>
+
+@{
+    ViewData["Title"] = "Product";
+}
+<h1><b><i>Product-DashBorad</i></b></h1>
+
+<a asp-action="Login" class="btn btn-info" asp-controller="Login">LOGIN</a>
+<br />
+<BR />
+<table class="table" style="background-color:mediumslateblue" width="100px">
+    <thead>
+        <tr style="background-color:mediumslateblue">
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductQuantityKg)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductQuantityKg)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

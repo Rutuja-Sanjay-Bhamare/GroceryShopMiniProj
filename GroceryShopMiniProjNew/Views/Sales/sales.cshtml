@@ -1,0 +1,150 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@{
+}
+@model GroceryShopMiniProjNew.Models.Sale
+
+@{
+
+    ViewBag.Title = "Receipt";
+
+}
+
+@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+*@
+@using (Html.BeginForm("Sales", "sales"))
+
+{
+    <span style="font-weight:bolder; font-size:16px; color:red;">@ViewBag.Message</span>
+
+    <form bg-color="#FFDAB9" align="center">
+
+
+
+        <div class="bg-color:#FFDAB9">
+
+
+
+            <div class="row">
+
+
+                <div class="form-group col-4 row-3">
+
+                    <lable for="ID"><i><b>Id</b></i></lable>
+
+                    @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @placeholder = "Enter ID " })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-4">
+
+                    <lable for="Cust_Name"><i><b>CustName</b></i></lable>
+
+                    @Html.TextBoxFor(m => m.CustName,new { @class = "form-control", @placeholder = "Enter Cust_Name " })
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col-4">
+
+                    <lable for="Adress"><i><b>Adress</b></i></lable>
+
+                    @Html.TextBoxFor(m => m.Adress, new { @class = "form-control", @placeholder = "Enter Address" })
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="form-group col-4">
+                    <lable for="ddlProductName"><i><b>select Product</b></i></lable>
+                    @Html.DropDownListFor(model => model.ProductId, new SelectList(ViewBag.ProductNavigation, "Value", "Text", Model.ProductId), "Select",
+                new { @class = "form-control", @onchange = "OnClick()" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-4">
+
+                    <lable for="Rate"><i><b>Rate</b></i></lable>
+
+                    @Html.TextBoxFor(m => m.Rate, new { @class = "form-control", @placeholder = "Enter Rate " })
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-4">
+
+                    <lable for="Quantity"><i><b>Quantity</b></i></lable>
+
+                    @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", @onchange= "total()" })
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col-4">
+
+                    <lable for="Total"><i><b>Total</b></i></lable>
+
+                    @Html.TextBoxFor(m => m.Total, new { @class = "form-control", @placeholder = "Print Total" })
+                </div>
+            </div>
+
+            <br>
+            <br />
+
+            <div class="row">
+
+                <div class="form-group col-12">
+
+                    <input type="submit" value="Submit" id="btnsbm" btn-btn-success style="height:50px; width:140px" />
+
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+
+}
+<script>
+
+    function OnClick() {
+        $.ajax({
+            url: '@Url.Action("Getdata")',
+            async: true,
+            type: 'GET',
+            dataType: "json",
+            data: { ProductId: $('#ProductId').val() },
+            success: function (response) {
+                if (response != null) {
+                    $('#Rate').val(response);
+                }
+                else {
+                    $('#Rate').val();
+                }
+            }
+        });
+        return false;
+    };
+    function total() {
+   @* alert("jjj");*@
+
+              var Rate = document.getElementById("Rate").value;
+        var Quantity = document.getElementById("Quantity").value;
+        var Total = parseFloat(Rate) * parseFloat(Quantity);
+        document.getElementById("Total").value = Total;
+    }
+</script>
+   
