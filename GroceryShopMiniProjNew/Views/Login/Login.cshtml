@@ -27,9 +27,9 @@
         <div class="row" >
 
       
-            <div class="container">
+            <div class="container" >
 	<div class="screen">
-                <center>  <h2><b><i>User Login</i></b></h2></center>
+                <center style="color:#FFFFFF">  <h2><b><i>User Login</i></b></h2></center>
 		<div class="screen__content">
                     
                     
@@ -37,34 +37,39 @@
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
       @*  <div class="form-group col-6"  style=" background-color:gold">*@
+                        <div class="form-group col-12">
                      <div class=" login__input">
 
-                            <lable for="loginid"><b><i>Username</i></b></lable>
+                            <lable for="loginid" style="color:#FFFFFF"><b><i>Username</i></b></lable>
 
                             @Html.TextBoxFor(m => m.Username, new { @class = "form-control",  @placeholder = "Enter user name " })
             
                
-
+</div>
         @*</div>*@
 
-        <div class="row">
+        <div class="form-group  col-12">
 
           @*  <div class="form-group col-6" style="background-color:gold">*@
             <div class=" login__input">
 
-                            <lable for="loginid"><b><i>Password</i></b></lable>
+                                    <lable for="loginid" style="color:#FFFFFF"><b><i>Password</i></b></lable>
 
                             @Html.PasswordFor(m => m.Pasword, new { @class = "form-control" ,@placeholder = "Enter Password"})
 
 
-                <div class="row">
-
+                <div class="row">      
+                    <center>
+                                        <div class="form-group col-6">
         <button class="button login__submit">
-            <div class="form-group col-12">
-                <span class="button__text">Log In Now</span>
+
+                   <span class="button__text">Login</span>
          @*   <input type="submit" value="submit" id="btnsbm" />*@
                 <i class="button__icon fas fa-chevron-right"></i>
+               
         </button>
+                                        </div>
+                                            </center>
     </div>
                 </div>
             </div>

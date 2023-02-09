@@ -11,24 +11,26 @@
 @{
     ViewData["Title"] = "Product";
 }
-<h1><b><i>Product-DashBorad</i></b></h1>
+
+<h1><b><i style="color:#FFFFFF">Product-DashBorad</i></b></h1>
+
 
 <a asp-action="Login" class="btn btn-info" asp-controller="Login">LOGIN</a>
 <br />
 <BR />
-<table class="table" style="background-color:mediumslateblue" width="100px">
+<table class="table" style="background-color:darkslateblue" width="100px">
     <thead>
-        <tr style="background-color:mediumslateblue">
-            <th>
+        <tr style="background-color:darkslateblue">
+            <th style="color:#FFFFFF">
                 @Html.DisplayNameFor(model => model.ProductId)
             </th>
-            <th>
+            <th style="color:#FFFFFF">
                 @Html.DisplayNameFor(model => model.ProductName)
             </th>
-            <th>
+            <th style="color:#FFFFFF">
                 @Html.DisplayNameFor(model => model.ProductPrice)
             </th>
-            <th>
+            <th style="color:#FFFFFF">
                 @Html.DisplayNameFor(model => model.ProductQuantityKg)
             </th>
             <th></th>
@@ -38,16 +40,16 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td style="color:#FFFFFF">
                     @Html.DisplayFor(modelItem => item.ProductId)
                 </td>
-                <td>
+                <td style="color:#FFFFFF">
                     @Html.DisplayFor(modelItem => item.ProductName)
                 </td>
-                <td>
+                <td style="color:#FFFFFF">
                     @Html.DisplayFor(modelItem => item.ProductPrice)
                 </td>
-                <td>
+                <td style="color:#FFFFFF">
                     @Html.DisplayFor(modelItem => item.ProductQuantityKg)
                 </td>
 
